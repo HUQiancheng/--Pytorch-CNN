@@ -1,0 +1,15 @@
+# PyTorch and its dependencies
+torch==2.0.0
+torchvision==0.15.0
+
+# Data handling and processing
+numpy==1.23.5
+scikit-learn==1.1.3
+pillow==9.4.0  # For handling images (PIL)
+
+# Visualization
+matplotlib==3.6.2
+
+# Additional dependencies (if any)
+# Add any additional libraries you may have used
+

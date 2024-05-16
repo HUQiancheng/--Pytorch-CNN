@@ -9,32 +9,20 @@ This project implements a Convolutional Neural Network (CNN) using PyTorch, desi
 ```
 .
 ├── data
-│   └── dataset
-│       ├── 0
-│       ├── 1
-│       ├── 2
-│       ├── 3
-│       ├── 4
-│       ├── 5
-│       ├── 6
-│       ├── 7
-│       ├── 8
-│       └── 9
+│   └── dataset
+├── image
+│   └── CNN_results.png
+├── README.MD
 ├── src
-│   ├── data
-│   │   ├── CNN_Dataset.py
-│   ├── inference
-│   │   ├── CNN_Inference.py
-│   ├── model
-│   │   ├── CNNModel.py
-│   ├── training
-│   │   ├── train_CNN.py
-│   ├── util
-│   │   ├── visualization.py
-│   │   ├── model.py
-│   ├── __init__.py
-├── train.py
-└── README.md
+│   ├── data
+│   ├── inference
+│   ├── __init__.py
+│   ├── model
+│   ├── __pycache__
+│   ├── runs
+│   ├── training
+│   └── util
+└── train.py
 ```
 
 ## Modules Description
@@ -60,34 +48,85 @@ This project implements a Convolutional Neural Network (CNN) using PyTorch, desi
 
 ## Requirements
 
-- Python 3.7+
-- PyTorch 1.6.0+
-- torchvision
-- matplotlib
-- numpy
-- scikit-learn
+- Python 3.11
+- PyTorch 2.0.0
+- torchvision 0.15.0
+- matplotlib 3.6.2
+- numpy 1.23.5
+- scikit-learn 1.1.3
+- pillow 9.4.0
 
 You can install the required packages using:
 ```
 pip install -r requirements.txt
 ```
 
-## Usage
+## Getting Started
 
-1. **Prepare Dataset**: Ensure your dataset is structured correctly within the `data/dataset` directory, with subdirectories for each class (0, 1, 2, ..., 9) containing the corresponding images.
+### Conda Environment Setup
 
-2. **Training the Model**:
-    - Run the `train.py` script to start training the model.
-    - The script will check if a pre-trained model exists. If found, it will ask whether to use it or train a new model.
-    - The training progress, including loss and accuracy, will be printed and visualized.
-
+1. **Remove existing environment (if any)**:
     ```bash
-    python train.py
+    conda remove -n cnn --all
     ```
 
-3. **Visualizing Training History and Predictions**:
-    - After training, the script will plot the training and validation loss and accuracy.
-    - It will also display a grid of images with their predicted labels.
+2. **Create a new environment with Python 3.11**:
+    ```bash
+    conda create -n cnn python=3.11
+    ```
+
+3. **Activate the new environment**:
+    ```bash
+    conda activate cnn
+    ```
+
+4. **Install the required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Dataset Preparation
+
+Ensure your dataset is structured correctly within the `data/dataset` directory, with subdirectories for each class (0, 1, 2, ..., 9) containing the corresponding images.
+
+Example directory structure:
+
+```
+data/
+└── dataset/
+    ├── 0/
+    ├── 1/
+    ├── 2/
+    ├── 3/
+    ├── 4/
+    ├── 5/
+    ├── 6/
+    ├── 7/
+    ├── 8/
+    └── 9/
+```
+
+### Training the Model
+
+To train the model, run the `train.py` script. This script will check if a pre-trained model exists. If found, it will ask whether to use it or train a new model.
+
+```bash
+python train.py
+```
+
+### Visualizing Results
+
+After training, the script will:
+1. Plot the training and validation loss and accuracy.
+2. Display a grid of images with their predicted labels.
+
+The results will be shown in a window and can be saved as an image.
+
+### Example Results
+
+Below is an example of the output results, showing the predictions of the model on a set of images:
+
+![CNN Results](image/CNN_results.png)
 
 ## Functions Overview
 
